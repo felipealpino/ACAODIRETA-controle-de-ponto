@@ -2,7 +2,7 @@
 namespace src;
 
 class Config {
-    const BASE_DIR = '/teste_acaoDireta/public';
+    const BASE_DIR = '/Projetos/teste_acaoDireta/public';
 
     const DB_DRIVER = 'mysql';
     const DB_HOST = 'localhost';
