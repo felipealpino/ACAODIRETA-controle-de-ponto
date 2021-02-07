@@ -1,0 +1,16 @@
+
+.form-login-range{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-control{
+    margin-bottom: 15px;
+    min-width: 300px;
+}
+
+.form-login-range a{
+    text-decoration: none;
+}
