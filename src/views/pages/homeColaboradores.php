@@ -1,3 +1,4 @@
+<a href="<?=$base;?>/sair">Sair</a> <br><br>
 Usuário logado: <?=$loggedUser->getEmail();?> <br>
 Seja bem-vindo, <?=$loggedUser->getNome();?> <br><br>
 

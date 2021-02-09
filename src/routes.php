@@ -17,3 +17,6 @@ $router->post('/cadastro_user',  'LoginController@signup_user_action');
 
 $router->get('/cadastro_colaborador', 'LoginController@signup_colaborador');
 $router->post('/cadastro_colaborador', 'LoginController@signup_colaborador_action');
+
+
+$router->get('/sair', 'LoginController@logout');

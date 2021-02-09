@@ -1,6 +1,6 @@
 <?php $render('header'); ?>
 
-Seja bem-vindo, <?=$nome;?> <br>
+Seja bem-vindo, <?=$loggedUser->getEmail();?> <br>
 
 <!DOCTYPE html>
 <html lang="pt-br">
