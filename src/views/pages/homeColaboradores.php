@@ -1,21 +1,49 @@
-<a href="<?=$base;?>/sair">Sair</a> <br><br>
+<a href="<?=$base;?>/sair">Sair</a> <br>
 Usuário logado: <?=$loggedUser->getEmail();?> <br>
 Seja bem-vindo, <?=$loggedUser->getNome();?> <br><br>
 
 <?php
 
-        $inicio = new DateTime('09/02/2021 08:00:00');
-        $inicio = date_format($inicio, 'Y-m-d H:i:s');
-        $final = new DateTime('09/03/2021 16:00:00');
-        $final = date_format($final, 'Y-m-d H:i:s');
+use src\models\Ponto;
 
-        echo "Inicio: ".$inicio."<br>";
-        echo "Final: ".$final."<br>";
-        $diff = strtotime($final) - strtotime($inicio);
-        $diff = $diff / 60 / 60;
-        echo $diff." horas trabalhadas";
+/**
+ * Começou e não finalizou cronometro
+ */
+$data = Ponto::select()
+            ->where('id_colaborador', $loggedUser->getId())
+            ->whereNotNull('started_at')
+            ->whereNull('finished_at')    
+        ->one();
 
-    ?>
+if($data){
+    echo "Existe um ponto em aberto"."<br>";
+    print_r($data);
+    $tempoAtual = new DateTime(date('Y-m-d H:i:s'));
+    $tempoAtual = date_format($tempoAtual, 'Y-m-d H:i:s');
+    
+    $tempoIniciado = date_create($data['started_at']);
+    $tempoIniciado = date_format($tempoIniciado, 'Y-m-d H:i:s');
+
+    echo ($tempoAtual - $tempoIniciado);
+    // $inicio = new DateTime($this->started_at);
+    // $inicio = date_format($inicio, 'Y-m-d H:i:s');
+    echo '<script src="assets/js/colaboradoresHome.js"></script>';
+
+} else {
+    echo "Não existe nenhum ponto em aberto";
+}
+   
+
+$finalizados =  Ponto::select()
+                    ->where('id_colaborador', $loggedUser->getId())
+                    ->whereNotNull('started_at')
+                    ->whereNotNull('finished_at')
+                ->execute();
+
+
+
+
+?>
 
 
 <!DOCTYPE html>
@@ -32,22 +60,50 @@ Seja bem-vindo, <?=$loggedUser->getNome();?> <br><br>
     
 
     <div class="content-cronometro">
-        <div class="cronometro-count">
-            <div class="cronometro-count-numbers">
-                <h1 class="time">00:00:00</h1>
-            </div>
+        <div class="cronometro-count-numbers">
+            <h1 class="time">00:00:00</h1>
         </div>
 
         <div class="cronometro-buttons">
-            <button type="button" class="btn btn-success btn-play">Play</button>
+            <button type="button" class="btn btn-success btn-play" onclick="return confirm('Tem certeza que deseja iniciar cronometro?')">Play</button>
             <button type="button" class="btn btn-warning btn-end" onclick="return confirm('Tem certeza que deseja finalizar?')">End</button>
         </div>
 
     </div>
 
+    <br><br>
+
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col" class="text-center">id_ponto</th>
+      <th scope="col" class="text-center">Inicio</th>
+      <th scope="col" class="text-center">Fim</th>
+      <th scope="col" class="text-center">Total em horas </th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php 
+        for($i=0; $i<count($finalizados); $i++):
+            $ponto = new Ponto();
+                $ponto->setId($finalizados[$i]['id']);
+                $ponto->setStartedAt($finalizados[$i]['started_at']);
+                $ponto->setFinishedAt($finalizados[$i]['finished_at']);
+                $ponto->setTotalHoras();
+    ?>     
+        <tr>
+        <td class="text-center"> <?=$ponto->getId();?> </th>
+        <td class="text-center"> <?=$ponto->getStartedAt()?> </td>
+        <td class="text-center"> <?=$ponto->getFinishedAt()?> </td>
+        <td class="text-center"> <?=$ponto->getTotalHoras();?> </td>
+        </tr>
+    <?php endfor; ?>
+  </tbody>
+</table>
+
 
     
 
-<script src="assets/js/colaboradoresHome.js"></script>
+<!-- <script src="assets/js/colaboradoresHome.js"></script> -->
 </body>
 </html>

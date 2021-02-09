@@ -1,4 +1,4 @@
-<?php $render('header'); ?>
+<a href="<?=$base;?>/sair">Sair</a> <br>
 
 Seja bem-vindo, <?=$loggedUser->getEmail();?> <br>
 

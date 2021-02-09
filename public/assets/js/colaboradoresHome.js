@@ -1,7 +1,7 @@
-window.onload = () => {
-    h=0; 
-    m=0;
-    s=0;
+function startAll(horas, min, segs) {
+    h=horas; 
+    m=min;
+    s=segs;
     tempoIniciado =0;
     playButton = document.querySelector('.btn-play')
     stopButton = document.querySelector('.btn-end');
