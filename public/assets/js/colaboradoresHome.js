@@ -1,19 +1,21 @@
-function startAll(horas, min, segs) {
-    h=horas; 
-    m=min;
-    s=segs;
-    tempoIniciado =0;
+window.onload = () => {
     playButton = document.querySelector('.btn-play')
     stopButton = document.querySelector('.btn-end');
     time = document.querySelector('.time');
+    arrayTime = time.innerText.split(':')
+    h = arrayTime[0];
+    m = arrayTime[1];
+    s = arrayTime[2]; 
     intervalo = 0;
     evento();
 }
 
-
 function evento(){
     playButton.addEventListener('click', iniciarCronometro);
     stopButton.addEventListener('click', pararCronometro);
+    if(h != 0 || m != 0 || s != 0){
+        iniciarCronometro();
+    }
 }
 
 

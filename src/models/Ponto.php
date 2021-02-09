@@ -56,11 +56,6 @@ class Ponto extends Model {
         return $this->total_horas;
     }
     public function setTotalHoras(){
-        // $inicio = new DateTime($this->started_at);
-        // $inicio = date_format($inicio, 'Y-m-d H:i:s');
-        // $final = new DateTime($this->finished_at);
-        // $final = date_format($final, 'Y-m-d H:i:s');
-
         $inicio = $this->started_at;
         $final = $this->finished_at;
 
