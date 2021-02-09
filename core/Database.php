@@ -14,5 +14,6 @@ class Database {
 
     private function __construct() { }
     private function __clone() { }
-    private function __wakeup() { }
-}
+    // private function __wakeup() { }
+    public function __wakeup() { }
+} 

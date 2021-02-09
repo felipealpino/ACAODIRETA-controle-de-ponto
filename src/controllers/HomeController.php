@@ -17,8 +17,7 @@ class HomeController extends Controller {
     }
 
     public function index() {
-        $this->loggedUser->name;
-        $this->render('home', ['nome' => 'Felipe']);
+        $this->render('home', ['nome' => $this->loggedUser->getNome()]);
     }
 
     public function sobre() {

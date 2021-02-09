@@ -16,7 +16,7 @@
                     echo $flash;
                 }
             ?>
-            <form method="POST" action="<?=$base;?>/login">
+            <form method="POST" action="<?=$base;?>/signin">
                 <label for="inputEmail" class="visually-hidden">Email</label>
                 <input type="email" id="inputEmail" class="form-control" placeholder="Digite seu email" required autofocus name="email">
                 <label for="inputPassword" class="visually-hidden">Senha</label>

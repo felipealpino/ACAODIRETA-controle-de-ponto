@@ -17,15 +17,11 @@
                     echo $flash;
                 }
             ?>
-            <form method="POST" action="<?=$base;?>/login">
-                <label for="inputEmail" class="visually-hidden">Email</label>
+            <form method="POST" action="<?=$base;?>/cadastro_user">
                 <input type="email" id="inputEmail" class="form-control" placeholder="Digite seu email" required autofocus name="email">
-                <label for="inputPassword" class="visually-hidden">Senha</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Digite sua senha" required name="password">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Digite sua senha" required name="senha">
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
             </form>
-            <a href="<?=$base;?>/cadastro_user">Cadastrar um usuário</a> <br>
-            <a href="<?=$base;?>/cadastro_colaborador">Cadastrar um colaborador</a>
         </div>
     </div>
   </body>

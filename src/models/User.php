@@ -6,7 +6,7 @@ class User extends Model {
     
     private $id;
     private $email;
-    private $name;
+    private $senha;
     private $token;
 
 
@@ -27,13 +27,5 @@ class User extends Model {
     }
 
 
-
-    public function getName(){
-        return $this->name;
-    }
-    public function setName($name){
-        $this->name = $name;
-    }
-   
     
 }

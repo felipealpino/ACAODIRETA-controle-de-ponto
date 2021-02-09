@@ -58,13 +58,38 @@ class LoginController extends Controller {
                 $this->redirect('/');
             } else {
                 $_SESSION['flash'] = "Email e/ou senha não conferem";
-                $this->redirect('/login');
+                $this->redirect('/signin');
             }
 
         } else {
             $_SESSION['flash'] = "Digite os campos de email e/ou senha";
-            $this->redirect('/login');
+            $this->redirect('/');
         }
+    }
+
+
+
+    public function signup_colaborador_action(){
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        $senha = filter_input(INPUT_POST, 'senha');
+        $nome = filter_input(INPUT_POST, 'nome');
+        $aniversario = filter_input(INPUT_POST, 'aniversario');
+
+
+        if($nome && $email && $senha && $aniversario){
+            if(LoginHandler::emailExists($email) === false){
+                $token = LoginHandler::addColaborador($nome, $email, $senha, $aniversario);
+                $_SESSION['token'] = $token;
+                $this->redirect('/');
+            } else {
+                $_SESSION['flash'] = "E-mail já cadastrado!";
+            } 
+
+        } else {
+            $this->redirect('/cadastro_colaborador');
+        }
+
+
     }
 
 }
