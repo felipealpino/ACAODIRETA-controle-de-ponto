@@ -14,10 +14,27 @@ class HomeController extends Controller {
         if(LoginHandler::checkLogin() === false){
             $this->redirect('/signin');
         }
+        
+        // if(LoginHandler::emailUserExists($this->loggedUser->getEmail())){
+        //     $this->indexUsuarios();
+        // } elseif(LoginHandler::emailColaboradorExists($this->loggedUser->getEmail())){
+        //     $this->indexColaboradores();
+        // }
     }
 
-    public function index() {
-        $this->render('home', ['nome' => $this->loggedUser->getNome()]);
+    public function indexUsuarios() {
+        if(LoginHandler::emailUserExists($this->loggedUser->getEmail())){
+            $this->render('homeUsuarios', ['nome' => $this->loggedUser->getEmail()]);
+        } else {
+            $this->render('403');
+        }
+    }
+    public function indexColaboradores() {
+        if(LoginHandler::emailColaboradorExists($this->loggedUser->getEmail())){
+            $this->render('homeColaboradores', ['nome' => $this->loggedUser->getNome()]);
+        } else {
+            $this->render('403');
+        }
     }
 
     public function sobre() {

@@ -18,7 +18,6 @@ class User extends Model {
     }
 
 
-   
     public function getEmail(){
         return $this->email;
     }
@@ -26,6 +25,6 @@ class User extends Model {
         $this->email = $email;
     }
 
-
+    
     
 }
