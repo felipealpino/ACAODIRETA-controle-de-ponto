@@ -67,10 +67,11 @@ class LoginController extends Controller {
         if($email && $senha){
             if(LoginHandler::emailUserExists($email) === false){
                 $token = LoginHandler::addUser($email, $senha);
-                // $_SESSION['token'] = $token;
+                $_SESSION['token'] = $token;
                 $this->redirect('/');
             } else {
                 $_SESSION['flash'] = "E-mail usuário já cadastrado !!";
+                header("Refresh: 0");
             }
         } else {
             $this->redirect('/cadastro_user');
@@ -106,7 +107,7 @@ class LoginController extends Controller {
         if($nome && $email && $senha && $aniversario){
             if(LoginHandler::emailColaboradorExists($email) === false){
                 $token = LoginHandler::addColaborador($nome, $email, $senha, $aniversario);
-                // $_SESSION['token'] = $token;
+                $_SESSION['token'] = $token;
                 $this->redirect('/');
             } else {
                 $_SESSION['flash'] = "E-mail colaborador já cadastrado !!";

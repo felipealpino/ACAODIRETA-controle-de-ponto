@@ -1,0 +1,8 @@
+.content-cronometro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cronometro-count-numbers{
+    display: flex;
+}

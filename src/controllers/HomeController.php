@@ -24,14 +24,14 @@ class HomeController extends Controller {
 
     public function indexUsuarios() {
         if(LoginHandler::emailUserExists($this->loggedUser->getEmail())){
-            $this->render('homeUsuarios', ['nome' => $this->loggedUser->getEmail()]);
+            $this->render('homeUsuarios', ['loggedUser' => $this->loggedUser]);
         } else {
             $this->render('403');
         }
     }
     public function indexColaboradores() {
         if(LoginHandler::emailColaboradorExists($this->loggedUser->getEmail())){
-            $this->render('homeColaboradores', ['nome' => $this->loggedUser->getNome()]);
+            $this->render('homeColaboradores', ['loggedUser' => $this->loggedUser]);
         } else {
             $this->render('403');
         }
