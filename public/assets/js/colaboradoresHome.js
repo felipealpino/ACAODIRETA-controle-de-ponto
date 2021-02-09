@@ -58,3 +58,28 @@ function pararCronometro(){
 
 
 
+{/* <script>
+    document.getElementById('buscar-produto').addEventListener('click', () => { buscar($("#myInput").val()) }, false);
+
+    function buscar(myInput){
+        //metodo ajax responsavel pela req
+        $.ajax  ({
+                    //Configurações
+                    type:'POST',    //metodo que está sendo utilizado
+                    dataType: 'html',   //tipo de dado que a página vai retornar
+                    url: '../php_controller/busca_produto_estoque.php',    //pagina que está sendo solicitada
+                    beforeSend: function(){
+                        $("#dados-tabela-produtos").html("Carregando....");
+                    },
+                    data: {myInput: myInput}, //Dados para consulta
+
+                    //funcao que sera executada quando a solicitação for finalizada.
+                    success: function(msg){
+                        $("#dados-tabela-produtos").html(msg);
+                    },
+                    complete : function () {
+                        ascendingAndDescending();
+                    }        
+                });
+    }
+</script> */}
