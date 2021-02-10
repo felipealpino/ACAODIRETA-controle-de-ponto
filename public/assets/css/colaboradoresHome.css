@@ -3,3 +3,10 @@
     flex-direction: column;
     align-items: center;
 }
+.cronometro-buttons{
+    display: flex;
+}
+.cronometro-buttons form{
+    margin: 5px;
+}
+

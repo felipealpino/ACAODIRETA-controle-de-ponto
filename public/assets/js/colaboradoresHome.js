@@ -1,6 +1,7 @@
 window.onload = () => {
     playButton = document.querySelector('.btn-play')
-    stopButton = document.querySelector('.btn-end');
+    // stopButton = document.querySelector('.btn-end');
+    check = document.querySelector('.info').innerText;
     time = document.querySelector('.time');
     arrayTime = time.innerText.split(':')
     h = arrayTime[0];
@@ -11,11 +12,12 @@ window.onload = () => {
 }
 
 function evento(){
-    playButton.addEventListener('click', iniciarCronometro);
-    stopButton.addEventListener('click', pararCronometro);
-    if(h != 0 || m != 0 || s != 0){
+    // playButton.addEventListener('click', iniciarCronometro);
+    // stopButton.addEventListener('click', pararCronometro);
+    // if(h != '00' || m != '00' || s != '00'){
+    if(check != 'Não existe nenhum ponto em aberto')
         iniciarCronometro();
-    }
+    // } 
 }
 
 
@@ -56,30 +58,3 @@ function pararCronometro(){
     s=0;
 }
 
-
-
-{/* <script>
-    document.getElementById('buscar-produto').addEventListener('click', () => { buscar($("#myInput").val()) }, false);
-
-    function buscar(myInput){
-        //metodo ajax responsavel pela req
-        $.ajax  ({
-                    //Configurações
-                    type:'POST',    //metodo que está sendo utilizado
-                    dataType: 'html',   //tipo de dado que a página vai retornar
-                    url: '../php_controller/busca_produto_estoque.php',    //pagina que está sendo solicitada
-                    beforeSend: function(){
-                        $("#dados-tabela-produtos").html("Carregando....");
-                    },
-                    data: {myInput: myInput}, //Dados para consulta
-
-                    //funcao que sera executada quando a solicitação for finalizada.
-                    success: function(msg){
-                        $("#dados-tabela-produtos").html(msg);
-                    },
-                    complete : function () {
-                        ascendingAndDescending();
-                    }        
-                });
-    }
-</script> */}

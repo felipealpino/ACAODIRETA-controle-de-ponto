@@ -30,8 +30,40 @@ class ColaboradoresHandler {
                         ->whereNotNull('started_at')
                         ->whereNotNull('finished_at')
                     ->execute();
-        
         return $finalizados;
     }
+
+
+
+    public static function finalizarPonto($id_colaborador, $tempoAtual){
+        if($id_colaborador && $tempoAtual){
+            Ponto::update()
+                ->set('finished_at', $tempoAtual)
+                ->where('id_colaborador', $id_colaborador)
+                ->whereNull('finished_at')
+            ->execute();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+    public static function iniciarPonto($id_colaborador, $tempoAtual){
+        if($id_colaborador && $tempoAtual){
+            Ponto::insert([
+                [
+                    'id_colaborador' => $id_colaborador,
+                    'started_at' => $tempoAtual
+                ]
+            ])->execute();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 
 }

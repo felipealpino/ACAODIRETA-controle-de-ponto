@@ -9,6 +9,10 @@ $router->get('/signin', 'LoginController@signin');
 $router->post('/signin', 'LoginController@signinAction');
 
 $router->get('/colaboradores', 'HomeController@indexColaboradores');
+$router->post('/colaboradores/end', 'ColaboradoresController@finishPonto');
+$router->post('/colaboradores/start', 'ColaboradoresController@startPonto');
+
+
 $router->get('/usuarios', 'HomeController@indexUsuarios');
 
 $router->get('/cadastro_user', 'LoginController@signup_user');
