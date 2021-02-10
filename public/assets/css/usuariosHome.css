@@ -1,0 +1,10 @@
+*{
+    margin:5px
+}
+table thead th{
+    cursor: pointer;
+}
+
+table thead th:hover{
+    background-color: rgba(240, 248, 255, 0.500);
+}

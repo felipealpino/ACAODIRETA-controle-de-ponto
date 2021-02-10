@@ -21,7 +21,7 @@ class UsuariosController extends Controller {
             $dataFinal = $dataAtual;
         }
 
-        $dados = UsuariosHandler::obterRelatorio($dataAtual, $dataInicial, $dataFinal, $ordenacao);
+        $dados = UsuariosHandler::obterRelatorio($dataAtual, $dataInicial, $dataFinal);
         
         $hc = new HomeController();
             $hc->indexUsuarios($dados);

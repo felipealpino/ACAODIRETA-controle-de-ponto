@@ -1,3 +1,6 @@
+*{
+    margin:5px;
+}
 .content-cronometro{
     display: flex;
     flex-direction: column;
