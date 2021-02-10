@@ -22,9 +22,12 @@ class HomeController extends Controller {
         // }
     }
 
-    public function indexUsuarios() {
+    public function indexUsuarios($dados = '') {
         if(LoginHandler::emailUserExists($this->loggedUser->getEmail())){
-            $this->render('homeUsuarios', ['loggedUser' => $this->loggedUser]);
+            $this->render('homeUsuarios', [
+                'loggedUser' => $this->loggedUser,
+                'dadosRelatorio' => $dados    
+            ]);
         } else {
             $this->render('403');
         }

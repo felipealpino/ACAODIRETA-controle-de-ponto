@@ -85,7 +85,7 @@ $pontosFinalizados = ColaboradoresHandler::getFinalizados($loggedUser->getId());
         </div>
 
         <div class="cronometro-buttons">
-            
+            <!-- BOTAO PLAY -->
             <?php if(!$data) : ?>
                 <form action="<?=$base;?>/colaboradores/start" method="post">
                     <input type="hidden" name="id_colaborador" value="<?php echo $loggedUser->getId(); ?>" >
@@ -95,11 +95,12 @@ $pontosFinalizados = ColaboradoresHandler::getFinalizados($loggedUser->getId());
                 </form>
             <?php endif ?>
 
+            <!-- BOTAO END -->
             <?php if($id_colaborador != ''): ?>
                 <form action="<?=$base;?>/colaboradores/end" method="post">
-                    <input type="hidden" name="id_colaborador" value="<?php echo $id_colaborador;?>" >
-                    <input type="hidden" name="tempoAtual" value="<?php echo $tempoAtual;?>" >
-                    <input type="submit" class="btn btn-danger btn-end" value="End">
+                    <input type="hidden" name="id_colaborador" value="<?php echo $id_colaborador;?> ">
+                    <input type="hidden" name="tempoAtual" value="<?php echo $tempoAtual;?> ">
+                    <input type="submit" class="btn btn-danger btn-end" value="End" >
                     <!-- <button type="button" class="btn btn-success btn-play"> Play </button> -->
                 </form>
             <?php endif ?>

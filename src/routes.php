@@ -12,6 +12,7 @@ $router->get('/colaboradores', 'HomeController@indexColaboradores');
 $router->post('/colaboradores/end', 'ColaboradoresController@finishPonto');
 $router->post('/colaboradores/start', 'ColaboradoresController@startPonto');
 
+$router->post('/usuarios/relatorio', 'UsuariosController@gerarRelatorio');
 
 $router->get('/usuarios', 'HomeController@indexUsuarios');
 

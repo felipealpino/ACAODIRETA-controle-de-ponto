@@ -37,6 +37,8 @@ class ColaboradoresHandler {
 
     public static function finalizarPonto($id_colaborador, $tempoAtual){
         if($id_colaborador && $tempoAtual){
+            // $totalHoras = floatval($totalHoras);
+            // $totalHoras = number_format($totalHoras,2,',','.');
             Ponto::update()
                 ->set('finished_at', $tempoAtual)
                 ->where('id_colaborador', $id_colaborador)

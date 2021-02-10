@@ -3,6 +3,7 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\handlers\ColaboradoresHandler;
+use \src\models\Ponto;
 
 
 class ColaboradoresController extends Controller {
@@ -10,6 +11,7 @@ class ColaboradoresController extends Controller {
     public function finishPonto(){
         $id_colaborador = filter_input(INPUT_POST, 'id_colaborador');
         $tempoAtual = filter_input(INPUT_POST, 'tempoAtual');
+        $totalhoras = filter_input(INPUT_POST, 'total_horas');
 
         $result = ColaboradoresHandler::finalizarPonto($id_colaborador, $tempoAtual);
         $this->redirect('/colaboradores');
