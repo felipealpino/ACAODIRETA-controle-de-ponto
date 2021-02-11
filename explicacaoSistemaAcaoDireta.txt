@@ -1,0 +1,45 @@
+O projeto foi feito na estrutura MVC
+A estrutura foi clonada do repositório: https://github.com/suporteb7web/mvc
+O projeto está no meu GitHub: https://github.com/felipealpino/acaoDireta
+   PS: tentei fazer o possivel para organizar os commits por etapas
+
+O nome da estrutura de dados é 'acaodireta'
+O agrupamento é agrupamento utf8_general_ci
+O banco de dados usado foi o MySql utilizando o phpMyAdmin
+O PHP utilizado é o PHP 8.0 ( ultima versão )
+É necessário ter o composer instalado (toda a explicação está no readMe do projeto no GitHub)
+Dentro da estrutura existem 3 tablelas:
+1) colaboradors  PS: (o nome é esse mesmo, sem o 'e' antes do 's')
+	aniversario(date)
+	email(varchar)
+	nome(varchar)
+	senha(varchar)
+	token(varchar)
+2) pontos
+	finished_at(datetime, NULL, nullable)
+	id_colaborador(int)
+	started_at(daatetime, NULL, nullable)
+	total_horas(float, NULL, nullable)
+3)users
+	email(varchar)
+	senha(varchar)
+	token(varchar
+
+
+
+
+EXPLICAÇÃO:
+Existe um sistema de login onde a pessoa que estiver logando definirá se ela é um 'usuário' ou um 'colaborador'
+Se for usuário a pessoa, ela pode:
+   1) cadastrar um novo colaborador
+   2) cadastrar um novo usuário
+   3) gerar relatórios dos colaboradores
+
+Se a pessoa for um colaborador, ela pode:
+   1) iniciar um novo ponto
+   2) pausar finalizar o ponto em andamento
+   3) tem acesso aos pontos finalizados passados
+
+Caso a pessoa feche o navegador ou saia, ela pode entrar novamente sem efetuar o login pois o token estará gravado no banco de dados
+Um usuário não consegue acessar uma conta de um colaborador somente trocando a url para public/colaborador
+Um colaborador não consegue acessar uma conta de um usuario somente trocando a url para public/usuario
